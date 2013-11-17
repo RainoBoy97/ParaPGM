@@ -193,7 +193,7 @@ public class Map {
 	
 	public void unload() {
 		String name = getWorld().getName();
-		Scrimmage.getInstance().getServer().unloadWorld(getWorld(), false);
+		Scrimmage.getInstance().getServer().unloadWorld(getWorld(), true);
 		
 		FileUtil.delete(new File(name));
 	}
@@ -240,6 +240,7 @@ public class Map {
 			});
 			world = wc.createWorld();
 			world.setSpawnFlags(false, false);
+			world.setKeepSpawnInMemory(false);
 		}
 		
 		Scrimmage.getInstance().getLogger().info("Loaded the World for '" + this.name + "' taking "
