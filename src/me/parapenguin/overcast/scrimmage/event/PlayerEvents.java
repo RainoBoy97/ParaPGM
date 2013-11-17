@@ -118,7 +118,7 @@ public class PlayerEvents implements Listener {
 	public void onEntityDamageEvent(EntityDamageByEntityEvent event) {
 		if (event.getEntity() instanceof Creature && event.getDamager() instanceof Player) {
 			Client damager = Client.getClient((Player) event.getDamager());
-			if (damager.isObserver()) {
+			if (damager.getTeam().isObserver() || !Scrimmage.getRotation().getSlot().getMatch().isCurrentlyRunning()) {
 				event.setCancelled(true);
 				return;
 			}

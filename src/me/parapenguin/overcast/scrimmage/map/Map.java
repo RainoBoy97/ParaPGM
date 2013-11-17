@@ -239,6 +239,7 @@ public class Map {
 				
 			});
 			world = wc.createWorld();
+			world.setSpawnFlags(false, false);
 		}
 		
 		Scrimmage.getInstance().getLogger().info("Loaded the World for '" + this.name + "' taking "
