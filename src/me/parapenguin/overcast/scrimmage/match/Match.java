@@ -267,6 +267,7 @@ public class Match {
 			for(Client client : Client.getClients())
 				client.setTeam(next.getMap().getObservers(), true, true, true);
 			next.getMatch().start();
+			Scrimmage.getRotation().getPrevious().getMap().unload();
 			
 			return true;
 		}

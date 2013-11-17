@@ -99,6 +99,16 @@ public class Rotation {
 		}
 	}
 	
+	public RotationSlot getPrevious() {
+		int current = getLocation(getSlot());
+		
+		try {
+			return getSlot(current - 1);
+		} catch(IndexOutOfBoundsException ioobe) {
+			return null;
+		}
+	}
+	
 	public static boolean addMap(MapLoader loader) {
 		return loaded.add(loader);
 	}
